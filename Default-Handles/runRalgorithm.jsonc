@@ -1,0 +1,44 @@
+[
+    {
+        "query": "R ( \"<encode>lsi_pws_mgr(path,fileroot=\"pws-contract\",share=<svdParam>);table <- as.data.table(get_similar_pws(\"<keyword>\",<simParam>));table$Keyword_Phrase <- rep(\"<keyword>\", nrow(table))</encode>\"); GenerateFrameFromRVariable ( \"table\" ) ;AddPanel(1); Panel ( 1 ) | SetPanelView ( \"visualization\" ) ; Frame ( ) | QueryAll ( ) | AutoTaskOptions ( panel = [ \"1\" ] , layout = [ \"Grid\" ] ) | Collect ( 500 ) ; Panel(1) | SetPanelLabel (\"Similarity Results\");",
+        "description": "Analysis of PWS Documents",
+        "params": [
+            {
+                "paramName": "keyword",
+				"view": {
+					"label": "Type in the keywords/text you would like to run Latent Semantic Analysis (LSA)",
+					"description": "Enter keywords or a phrase that describes the content to search in the PWS repository",
+					"displayType": "freetext"
+                },
+                "model": {
+                    "defaultValue": "Business Intelligence Skills"
+                }
+            },
+			{
+                "paramName": "svdParam",
+                "view": {
+					"label": "Enter the Singular Value Decomposition (SVD) factor percentage",
+					"description": "SVD parameter indicates the fcator by with LSA ignores the less importance dimensions. Thus, 0.8 reflect that we are dropping 20% less important dimensions. ",
+                    "displayType": "number"
+                },
+                "model": {
+                    "defaultValue": 0.8
+                }
+            },
+			{
+				"paramName": "simParam",
+				"view": {
+					"label": "Enter the Similarity Threshold",
+					"description": "Default to 50%. This percentage indicates that the PWS selected are similar by the inputted percentage or higher with the provided request keyword or phrase.  ",
+					"displayType": "number"
+				},
+				"model": {
+					"defaultValue": 0.5
+				}
+            }
+        ],
+		"execute": "button"
+    }
+]
+// use inputs to run an R algorithm and create a corresponding heatmap on the results
+// a combination of numbers and free text
