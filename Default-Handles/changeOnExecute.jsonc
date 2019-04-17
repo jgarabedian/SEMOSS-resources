@@ -1,0 +1,34 @@
+[
+    {
+        "query": " ##ScatterPlot## if ( ( HasDuplicates ( <groupCol> ) ) , ( Frame ( ) | Select ( <groupCol> , Average ( Risk_Score ) , Average ( DOLLARTHRESHOLD ) ) .as ( [ <groupCol> , AverageofRisk_Score , AverageofDOLLARTHRESHOLD ] ) | Filter ( DOLLARTHRESHOLD < 5000000 ) | Group ( <groupCol> ) | With ( Panel ( 3 ) ) | Format ( type = [ 'table' ] ) | TaskOptions ( { \"3\" : { \"layout\" : \"Scatter\" , \"alignment\" : { \"label\" : [ \"<groupCol>\" ] , \"x\" : [ \"AverageofRisk_Score\" ] , \"y\" : [ \"AverageofDOLLARTHRESHOLD\" ] , \"z\" : [ ] , \"series\" : [ ] , \"tooltip\" : [ ] , \"facet\" : [ ] } } } ) | Collect ( 2000 ) ) , ( Frame ( ) | Select ( <groupCol> , Average ( Risk_Score ) , DOLLARTHRESHOLD ) .as ( [ <groupCol> , AverageofRisk_Score , DOLLARTHRESHOLD ] ) | Group ( <groupCol> ) | With ( Panel ( 3 ) ) | Format ( type = [ 'table' ] ) | TaskOptions ( { \"3\" : { \"layout\" : \"Scatter\" , \"alignment\" : { \"label\" : [ \"<groupCol>\" ] , \"x\" : [ \"AverageofRisk_Score\" ] , \"y\" : [ \"DOLLARTHRESHOLD\" ] , \"z\" : [ ] , \"series\" : [ ] , \"tooltip\" : [ ] , \"facet\" : [ ] } } } ) | Collect ( 2000 ) ) ) ; Panel ( 3 ) | SetPanelLabel(\"Dollar Threshold vs. Risk Score, grouped by <groupCol>\"); if ( ( HasDuplicates ( <groupCol> ) ) , ( Frame ( ) | Select ( <groupCol> , Average ( MaterialNonComplianceYes ) , Average ( SignificantDeficiencyYes ) , Average ( MATERIALWEAKNESSYes ) , Average ( OtherNonComplianceYes ) , Average ( REPORTABLECONDITIONYes ) , Average ( QCOSTSYes ) , Average ( GOINGCONCERNYes ) ) .as ( [ <groupCol> , AverageofMaterialNonComplianceYes , AverageofSignificantDeficiencyYes , AverageofMATERIALWEAKNESSYes , AverageofOtherNonComplianceYes , AverageofREPORTABLECONDITIONYes , AverageofQCOSTSYes , AverageofGOINGCONCERNYes ] ) | Group ( <groupCol> ) | With ( Panel ( 7 ) ) | Format ( type = [ 'table' ] ) | TaskOptions ( { \"7\" : { \"layout\" : \"Column\" , \"alignment\" : { \"label\" : [ \"<groupCol>\" ] , \"value\" : [ \"AverageofMaterialNonComplianceYes\" , \"AverageofSignificantDeficiencyYes\" , \"AverageofMATERIALWEAKNESSYes\" , \"AverageofOtherNonComplianceYes\" , \"AverageofREPORTABLECONDITIONYes\" , \"AverageofQCOSTSYes\" , \"AverageofGOINGCONCERNYes\" ] , \"tooltip\" : [ ] } } } ) | Collect ( 500 ) ) , ( Frame ( ) | Select ( <groupCol> , MaterialNonComplianceYes , SignificantDeficiencyYes , MATERIALWEAKNESSYes , OtherNonComplianceYes , REPORTABLECONDITIONYes , QCOSTSYes , GOINGCONCERNYes ) .as ( [ <groupCol> , MaterialNonComplianceYes , SignificantDeficiencyYes , MATERIALWEAKNESSYes , OtherNonComplianceYes , REPORTABLECONDITIONYes , QCOSTSYes , GOINGCONCERNYes ] ) | With ( Panel ( 7 ) ) | Format ( type = [ 'table' ] ) | TaskOptions ( { \"7\" : { \"layout\" : \"Column\" , \"alignment\" : { \"label\" : [ \"<groupCol>\" ] , \"value\" : [ \"MaterialNonComplianceYes\" , \"SignificantDeficiencyYes\" , \"MATERIALWEAKNESSYes\" , \"OtherNonComplianceYes\" , \"REPORTABLECONDITIONYes\" , \"QCOSTSYes\" , \"GOINGCONCERNYes\" ] , \"tooltip\" : [ ] } } } ) | Collect ( 500 ) ) ) ; Panel ( 7 ) | AddPanelOrnaments ( { \"tools\" : { \"shared\" : { \"toggleStack\" : true } } } ) ; Panel ( 7 ) | RetrievePanelOrnaments ( \"tools.shared.toggleStack\" );Panel ( 3 ) | RemovePanelColorByValue ( name = [ \"cbv_1550854109422\" ] ) ; cbv_1550854109422 = Frame ( ) | ImplicitFilterOverride ( true ) | Select ( <groupCol>, Average (Risk_Score), Average (DOLLARTHRESHOLD) ) | Group ( <groupCol> ) | Having ( ( Average(Risk_Score) > [1.2] ) AND ( Average (DOLLARTHRESHOLD) > [610396] ) ) ; Panel ( 3 ) | AddPanelColorByValue ( name = [ \"cbv_1550854109422\" ] , qs = [ cbv_1550854109422 ] , options = [ { \"color\" : \"#ff6666\" , \"colorOn\" : \"<groupCol>\" } ] ) ; Panel ( 3 ) | RetrievePanelColorByValue ( name = [ \"cbv_1550854109422\" ] ) | Collect ( 3500 ) ",
+        "label": "Label",
+        "description": "",
+        "params": [
+            {
+                "paramName": "groupCol",
+                "view": {
+                    "displayType": "dropdown",
+                    "label": "Pick your dashboard",
+                    "attributes" : {
+                        "change" : "execute"
+                    }
+                },
+                "model": {
+                    "defaultOptions": [
+                        "FEDERALPROGRAMNAME_CFDA",
+                        "AUDITYEAR",
+                        "AUDITEENAME",
+                        "EIN",
+                        "FAC_General"
+                    ],
+                    "defaultValue": "FEDERALPROGRAMNAME_CFDA"
+                }
+            }
+        ]
+    }
+]
+// this creates a scatter plot and column chart
+// based on the dropdown, and executes every time the value is changed
+// this query also removes the existing color by value and implements a new 
+// one based on the selected criteria
+// comments in the query are surrounded by ## comment ##
