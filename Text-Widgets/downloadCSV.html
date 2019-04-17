@@ -1,0 +1,46 @@
+<body>
+    <button class="button" ng-click="textWidget.runPixel('Frame () | Select(FAC_General, AUDITEENAME, AUDITEEEMAIL, AUDITEEPHONE, CPAFIRMNAME, Risk_Score, DIRECT_CFDA, DOLLARTHRESHOLD, MATERIALNONCOMPLIANCE, SIGNIFICANTDEFICIENCY_Findings, MATERIALWEAKNESS, OTHERNONCOMPLIANCE_Findings, REPORTABLECONDITION, QCOSTS, GOINGCONCERN, CYFINDINGS, PYSCHEDULE, LOWRISK).as([Grant_ID, Auditee_Name, Auditee_Email, Auditee_Phone, CPA_Firm_Name, Risk_Score, Accepted, Dollar_Threshold, Material_Noncompliance, Significant_Deficiency, Material_Weakness, Other_Non_Compliance, Reportable_Condition, Q_Costs, Going_Concern, CY_Findings, PY_Schedule, Deemed_Low_Risk]) | Sort ( columns = [\'FAC_General\'], sort = [\'desc\']) | ToCsv();')" type="button" style="vertical-align:middle" >
+        <span>Download</span>
+    </button>
+</body>
+<style>
+    #TextWidget .button{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #3361AC;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 100%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    }
+
+    #TextWidget .button span{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    }
+
+    #TextWidget .button span:after{
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+    }
+
+    #TextWidget .button:hover span{
+    padding-right: 25px;
+    }
+
+    #TextWidget .button:hover span:after{
+    opacity: 1;
+    right: 0;
+    }
+</style>
