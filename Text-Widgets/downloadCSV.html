@@ -1,5 +1,6 @@
 <body>
-    <button class="button" ng-click="textWidget.runPixel('Frame () | Select(FAC_General, AUDITEENAME, AUDITEEEMAIL, AUDITEEPHONE, CPAFIRMNAME, Risk_Score, DIRECT_CFDA, DOLLARTHRESHOLD, MATERIALNONCOMPLIANCE, SIGNIFICANTDEFICIENCY_Findings, MATERIALWEAKNESS, OTHERNONCOMPLIANCE_Findings, REPORTABLECONDITION, QCOSTS, GOINGCONCERN, CYFINDINGS, PYSCHEDULE, LOWRISK).as([Grant_ID, Auditee_Name, Auditee_Email, Auditee_Phone, CPA_Firm_Name, Risk_Score, Accepted, Dollar_Threshold, Material_Noncompliance, Significant_Deficiency, Material_Weakness, Other_Non_Compliance, Reportable_Condition, Q_Costs, Going_Concern, CY_Findings, PY_Schedule, Deemed_Low_Risk]) | Sort ( columns = [\'FAC_General\'], sort = [\'desc\']) | ToCsv();')" type="button" style="vertical-align:middle" >
+    <!-- Change QueryAll() to a select statement if you do not want all headers in your default frame -->
+    <button class="button" ng-click="textWidget.runPixel('Frame () | QueryAll() | ToCsv();')" type="button" style="vertical-align:middle" >
         <span>Download</span>
     </button>
 </body>
