@@ -102,11 +102,13 @@ Query: FrameData
 
 <style>
     #TextWidget {
-        --today-heading-background: #7F7F7F;
+        --today-heading-background: #c4bebe;
         --today-heading-color: white;
         --today-stats-color: white;
-        --today-col-background: linear-gradient(#7F7F7F, #003366);
+        --today-col-background: linear-gradient(#c4bebe, #003366);
         --line-background: white;
+        --today-heading-border: 1px solid #c4bebe;
+        --today-col-border: 1px solid #c4bebe;
     }
 
     #TextWidget .today-heading{
@@ -114,7 +116,7 @@ Query: FrameData
         width: 100%;
         text-align: center;
         font-weight: bold;
-        border: 1px solid #7F7F7F;
+        border: var(--today-heading-border);
         background: var(--today-heading-background);        
         color:white;
         font-size: 150%;
@@ -129,8 +131,7 @@ Query: FrameData
     #TextWidget .today-col{
         display: inline-block;
         width: 16.666666666666667%;
-        border: 1px solid #7F7F7F;
-        height: 150px;
+        border: var(--today-col-border);
         overflow: hidden;
         font-size: 1vh;
         background: var(--today-col-background); 
