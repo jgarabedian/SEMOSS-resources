@@ -1,0 +1,184 @@
+KPI TEXT WIDGET
+  
+*****************************************************************
+  
+Param Name: Frame ( ) | Select ( Title , Director , MovieBudget , Revenue_Domestic , Revenue_International , Studio , Nominated , Genre ) | Collect(1000);
+Query: FrameData
+
+*****************************************************************
+
+<html>
+<body>
+    <div class="top-bar">
+
+        <div class="today-heading">
+            <div>
+                Weekly KPIs
+            </div>
+        </div>
+        <div class="today-stats">
+            <div class="today-col">
+                <div class="icon">
+                    <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/checkbox-39-827714.png" alt="Icon"
+                        height="42" width="42">
+                </div>
+                <div class="number">
+                    {{FrameData[0].output.data.values[0][0] | replaceUnderscores }}
+                </div>
+                <div class="line"></div>
+                <div class="label">
+                    Title
+                </div>
+            </div>
+            <div class="today-col">
+                <div class="icon">
+                    <img src="https://cdn3.iconfinder.com/data/icons/miniglyphs/500/041-512.png" alt="Icon" height="42"
+                        width="42">
+                </div>
+                <div class="number">
+                    {{FrameData[0].output.data.values[0][1] | replaceUnderscores }}
+                </div>
+                <div class="line"></div>
+                <div class="label">
+                    Director
+                </div>
+            </div>
+            <div class="today-col">
+                <div class="icon">
+                    <img src="https://static.thenounproject.com/png/376090-200.png" alt="Icon" height="42" width="42">
+                </div>
+                <div class="number">
+                    {{FrameData[0].output.data.values[0][2] | number:0 | replaceUnderscores}}
+                </div>
+                <div class="line"></div>
+                <div class="label">
+                    Movie Budget
+                </div>
+            </div>
+            <div class="today-col">
+                <div class="icon">
+                    <img src="https://cdn1.iconfinder.com/data/icons/clock-faces-1-12/100/Clock-8-512.png" alt="Icon"
+                        height="42" width="42">
+                </div>
+                <div class="number">
+                    {{FrameData[0].output.data.values[0][3] | number:0}}
+                </div>
+                <div class="line"></div>
+                <div class="label">
+                    Domestic Revenue
+                </div>
+            </div>
+            <div class="today-col">
+                <div class="icon">
+                    <img src="https://cdn3.iconfinder.com/data/icons/emailing-and-messaging-set2/32/ema32px095-512.png"
+                        alt="Icon" height="42" width="42">
+                </div>
+                <div class="number">
+                    {{FrameData[0].output.data.values[0][4] | number:0}}
+                </div>
+                <div class="line"></div>
+                <div class="label">
+                    International Revenue
+                </div>
+            </div>
+            <div class="today-col">
+                <div class="icon">
+                    <img src="https://cdn4.iconfinder.com/data/icons/chat-messages-line-icons-vol-1/48/43-512.png"
+                        alt="Icon" height="42" width="42">
+                </div>
+                <div class="number">
+                    {{FrameData[0].output.data.values[0][6]}}
+                </div>
+                <div class="line"></div>
+                <div class="label">
+                    Nominated
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+    #TextWidget {
+        --today-heading-background: #7F7F7F;
+        --today-heading-color: white;
+        --today-stats-color: white;
+        --today-col-background: linear-gradient(#7F7F7F, #003366);
+        --line-background: white;
+    }
+
+    #TextWidget .today-heading{
+        /* height: 40px; */
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #7F7F7F;
+        background: var(--today-heading-background);        
+        color:white;
+        font-size: 150%;
+    }
+
+    #TextWidget .today-stats{
+        height: 25.55%;
+        color:var(--today-stats-color);
+        width: 100%;
+    }
+
+    #TextWidget .today-col{
+        display: inline-block;
+        width: 16.666666666666667%;
+        border: 1px solid #7F7F7F;
+        height: 150px;
+        overflow: hidden;
+        font-size: 1vh;
+        background: var(--today-col-background); 
+        white-space: nowrap;
+        margin-right: -4px;
+    }
+
+    #TextWidget .icon{
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        font-size: 4vh;
+        overflow: hidden;
+        margin-top: 5%;
+    }
+
+    #TextWidget .number{
+        font-size: 1.8vh;
+        width: 100%;
+        font-weight: bold;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        margin-top: 2.5%;
+    }
+
+    #TextWidget .line{
+        width: 80%;
+        display: inline-block;
+        margin-left: 10%;
+        background:var(--line-background);
+        height: 2px;
+        margin-top: 2.5%;
+    }
+
+    #TextWidget .label{
+        font-size: 1.8vh;
+        width: 100%;
+        font-weight: bold;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 2.5%
+    }
+
+    #TextWidget .top-bar{
+        height: 100%;
+        width: 100%;
+    }
+</style>
