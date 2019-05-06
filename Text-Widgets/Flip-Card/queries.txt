@@ -1,0 +1,8 @@
+FLIP CARD TEXT WIDGET WITH CLICK EVENT
+  
+*****************************************************************
+
+Param Name: FrameData 
+Query: Frame ( ) | Select ( Title , Director , MovieBudget , Revenue_Domestic , Revenue_International , Studio , Nominated , Genre ) | Collect(1000);
+
+*****************************************************************
