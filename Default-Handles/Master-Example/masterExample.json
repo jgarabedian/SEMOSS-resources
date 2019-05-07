@@ -493,6 +493,32 @@
                     "infiniteQuery": "Genre_4_infinite | Collect(50);",
                     "autoSelect": false
                 }
+            },
+            {
+                "paramName": "Studio_0_search",
+                "view": false,
+                "model": {
+                    "defaultValue": ""
+                }
+            },
+            {
+                "paramName": "Studio_0",
+                "view": {
+                    "displayType": "typeahead",
+                    "description": "A mix between a drop down and text field, allows for new entries while also showing existing",
+                    "label": "Type Ahead"
+                },
+                "model": {
+                    "dependsOn": [
+                        "Studio_0_search"
+                    ],
+                    "searchParam": "Studio_0_search",
+                    "defaultValue": "",
+                    "defaultOptions": [],
+                    "query": "(Studio_0_infinite = Database( database=[\"MovieDatabase\"] )|Select(Studio).as([Studio])|Filter(Studio?like\"<Studio_0_search>\")|Iterate()) | Collect(50);",
+                    "infiniteQuery": "Studio_0_infinite | Collect(50);",
+                    "autoSelect": false
+                }
             }
         ],
         "execute": "Submit"
