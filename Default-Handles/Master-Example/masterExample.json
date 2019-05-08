@@ -1,6 +1,6 @@
 [
     {
-        "query": "AddPanel (2);",
+        "query": "1+1",
         "description": "An example of every input type for default handles",
         "params": [
             {
