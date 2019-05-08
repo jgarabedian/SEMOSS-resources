@@ -1,6 +1,6 @@
 [
     {
-        "query": "Database(database=[\"MovieDatabase\"]) | Insert (into=[Title,Title,Title,Title,Title,Title,Title,Title__MovieBudget,Title__RottenTomatoes_Critics,Title__Revenue_International,Title__Revenue_International,Title__Revenue_Domestic], values=[(\"<Title_0>\"),(<Title_1>),(<Title_2>),(\"<Title_3>\"),(\"<Title_4>\"),(\"<Title_5>\"),(\"<Title_7>\"),(\"<MovieBudget_8>\"),(\"<RottenTomatoes_Critics_9>\"),(\"<Revenue_International_10>\"),(\"<Revenue_International_11>\"),(\"<Revenue_Domestic_12>\")]);",
+        "query": "AddPanel (2);",
         "description": "An example of every input type for default handles",
         "params": [
             {
@@ -53,7 +53,7 @@
                 "required": false
             },
             {
-                "paramName": "Checkbox",
+                "paramName": "Checkbox left",
                 "view": {
                     "displayType": "checkbox",
                     "description": "Use this field to select something on or off left side",
@@ -64,9 +64,17 @@
                 },
                 "model": {
                     "defaultValue": "false",
-                    "valueQuery": "if((1==1), true, false);"
+                    "valueQuery": "if((1==2), true, false);"
                 },
                 "required": false
+            },
+            {
+                "paramName": "myView",
+                "view": {
+                    "displayType": "textfield",
+                    "description": "This can be used to break up sections of your form",
+                        "label": "=========== A NEW SECTION ======================="
+                }
             },
             {
                 "paramName": "Title_1",
@@ -90,14 +98,6 @@
                     "query": "(Title_1_infinite = Database( database=[\"MovieDatabase\"] )|Select(Title).as([Title])|Filter(Title?like\"<Title_1_search>\")|Iterate()) | Collect(50);",
                     "infiniteQuery": "Title_1_infinite | Collect(50);",
                     "autoSelect": false
-                }
-            },
-            {
-                "paramName": "myView",
-                "view": {
-                    "displayType": "textfield",
-                    "description": "This can be used to break up sections of your form",
-                        "label": "=========== A NEW SECTION ======================="
                 }
             },
             {
@@ -219,6 +219,32 @@
                 }
             },
             {
+                "paramName": "Studio_0_search",
+                "view": false,
+                "model": {
+                    "defaultValue": ""
+                }
+            },
+            {
+                "paramName": "Studio_0",
+                "view": {
+                    "displayType": "typeahead",
+                    "description": "A mix between a drop down and text field, allows for new entries while also showing existing",
+                    "label": "Type Ahead"
+                },
+                "model": {
+                    "dependsOn": [
+                        "Studio_0_search"
+                    ],
+                    "searchParam": "Studio_0_search",
+                    "defaultValue": "",
+                    "defaultOptions": [],
+                    "query": "(Studio_0_infinite = Database( database=[\"MovieDatabase\"] )|Select(Studio).as([Studio])|Filter(Studio?like\"<Studio_0_search>\")|Iterate()) | Collect(50);",
+                    "infiniteQuery": "Studio_0_infinite | Collect(50);",
+                    "autoSelect": false
+                }
+            },
+            {
                 "paramName": "Title_7_search",
                 "view": false,
                 "model": {
@@ -304,6 +330,14 @@
                 "view": false,
                 "model": {
                     "defaultValue": ""
+                }
+            },
+            {
+                "paramName": "myView",
+                "view": {
+                    "displayType": "textfield",
+                    "description": "The following are examples of sliders and how to customize them",
+                        "label": "=========== SLIDERS ======================="
                 }
             },
             {
@@ -491,32 +525,6 @@
                     "defaultOptions": [],
                     "query": "(Genre_4_infinite = Database( database=[\"MovieDatabase\"] )|Select(Genre).as([Genre])|Filter(Genre?like\"<Genre_4_search>\")|Iterate()) | Collect(50);",
                     "infiniteQuery": "Genre_4_infinite | Collect(50);",
-                    "autoSelect": false
-                }
-            },
-            {
-                "paramName": "Studio_0_search",
-                "view": false,
-                "model": {
-                    "defaultValue": ""
-                }
-            },
-            {
-                "paramName": "Studio_0",
-                "view": {
-                    "displayType": "typeahead",
-                    "description": "A mix between a drop down and text field, allows for new entries while also showing existing",
-                    "label": "Type Ahead"
-                },
-                "model": {
-                    "dependsOn": [
-                        "Studio_0_search"
-                    ],
-                    "searchParam": "Studio_0_search",
-                    "defaultValue": "",
-                    "defaultOptions": [],
-                    "query": "(Studio_0_infinite = Database( database=[\"MovieDatabase\"] )|Select(Studio).as([Studio])|Filter(Studio?like\"<Studio_0_search>\")|Iterate()) | Collect(50);",
-                    "infiniteQuery": "Studio_0_infinite | Collect(50);",
                     "autoSelect": false
                 }
             }
