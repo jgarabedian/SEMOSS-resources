@@ -532,3 +532,5 @@ Panel ( 0 ) | SetPanelView ( "default-handle" , "<encode>{ "param": true, "json"
       "execute": "Submit"
     }
   ]}</encode>" ) ;
+
+  Panel ( 0 ) | SetPanelLabel ("Master Example");
