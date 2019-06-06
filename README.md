@@ -24,5 +24,12 @@ Each default handle is a different template and will include the JSON file forma
 
 Can I contribute my own files?
 -----
-Yes! We highly encourage the _SEMOSS_ community to contribute to the resources that can then be shared with others.
+Yes! We highly encourage the _SEMOSS_ community to contribute to the resources that can then be shared with others. To ensure your inputs can be used by the community, please follow these guidelines.
 
+* Include all necessary files (image, pixel, etc.) that are used in the section you are contributing to.
+* As much as possible, comment your code so users can follow.
+* Have your contributions work for MovieDatabase or any other public database that can be scaled to other users.
+
+Any Questions?
+-----
+> Please reach out to semossteam@deloitte.com 
