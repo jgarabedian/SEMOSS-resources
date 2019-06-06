@@ -1,0 +1,73 @@
+Panel ( 0 ) | SetPanelView ( "default-handle" , "<encode>{ "param": true, "json":[
+    {
+        "query": "Database(\"College\") | Insert (into=[COLLEGE__Institution_Name,COLLEGE__Religious_Affiliation,COLLEGE__Control], values=[(\"<Institution_Name_0>\"),(\"<Religious_Affiliation_2>\"),(\"<Control_3>\")]);",
+        "description": "The ability to make certain fields optional. By default all fields are required.",
+        "params": [
+            {
+                "paramName": "Institution_Name_0",
+                "view": {
+                    "displayType": "freetext",
+                    "description": "",
+                    "label": "Institution Name"
+                }
+            },
+            {
+                "paramName": "Religious_Affiliation_2_search",
+                "view": false,
+                "model": {
+                    "defaultValue": ""
+                }
+            },
+            {
+                "paramName": "Religious_Affiliation_2",
+                "view": {
+                    "displayType": "dropdown",
+                    "description": "",
+                    "label": "Religious Affiliation",
+                    "attributes": {}
+                },
+                "model": {
+                    "dependsOn": [
+                        "Religious_Affiliation_2_search"
+                    ],
+                    "searchParam": "Religious_Affiliation_2_search",
+                    "defaultValue": "",
+                    "defaultOptions": [],
+                    "query": "(Religious_Affiliation_2_infinite = Database( \"College\" )|Select(COLLEGE__Religious_Affiliation).as([Religious_Affiliation])|Filter(COLLEGE__Religious_Affiliation?like\"<Religious_Affiliation_2_search>\")|Iterate()) | Collect(50);",
+                    "infiniteQuery": "Religious_Affiliation_2_infinite | Collect(50);",
+                    "autoSelect": false
+                }
+            },
+            {
+                "paramName": "Control_3_search",
+                "view": false,
+                "model": {
+                    "defaultValue": ""
+                }
+            },
+            {
+                "paramName": "Control_3",
+                "view": {
+                    "displayType": "dropdown",
+                    "description": "This is an optional value! The database will insert this as NULL if left blank",
+                    "label": "Control",
+                    "attributes": {}
+                },
+                "model": {
+                    "dependsOn": [
+                        "Control_3_search"
+                    ],
+                    "searchParam": "Control_3_search",
+                    "defaultValue": "",
+                    "defaultOptions": [],
+                    "query": "(Control_3_infinite = Database( \"College\" )|Select(COLLEGE__Control).as([Control])|Filter(COLLEGE__Control?like\"<Control_3_search>\")|Iterate()) | Collect(50);",
+                    "infiniteQuery": "Control_3_infinite | Collect(50);",
+                    "autoSelect": false
+                },
+                "required": false
+            }
+        ],
+        "execute": "Submit"
+    }
+]}</encode>" ) ;
+Panel ( 0 ) | SetPanelLabel ("Required Fields");
