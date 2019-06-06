@@ -1,0 +1,8 @@
+KPI TEXT WIDGET
+  
+*****************************************************************
+  
+Param Name: Frame ( ) | Select ( RevenueDomestic ) | Filter ( Director == "Adam_McKay") | Collect(-1);
+Query: FrameData
+
+*****************************************************************

@@ -1,0 +1,125 @@
+<div class="sectionClass">
+                       <div class="item">
+				<div class="number"> {{FrameData[0].output.data.values[0][0] | number:0 | replaceUnderscores}}
+				<span class="tooltiptext text">Total Movie Budget Including Production Staff, Cast, and Post-Production. </span> </div>
+				<span></span>
+				<div class="number-text">Movie Budget</div>
+			</div>
+
+</div>
+
+<style>
+#TextWidget .sectionClass{
+  position: relative;
+  display: inline-block;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  width: 100%;
+  display: table;
+  float: none;
+  padding: 0;
+  height: 100%;
+}
+
+#TextWidget .item{
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  text-align: center;
+  display: inline-block;
+}
+
+#TextWidget .number{
+  font-size: 20px;
+  margin: 0px;
+  padding: 0px;
+  font-weight: bold;
+  position: relative;
+}
+
+#TextWidget .number-text{
+  color: black;
+  font-size: 13px;
+  margin: 0;
+  padding: 4px;
+}
+
+#TextWidget .item span{
+  width: 90px;
+  background: rgb(37, 102, 188);
+  height: 2px;
+  display: block;
+  margin: 0 auto;
+}
+
+#TextWidget .item:hover .number-text, #TextWidget .item:hover .number{
+  color: rgb(37, 102, 188);
+}
+
+#TextWidget .item:hover span{
+  background: black;
+}
+
+#TextWidget @media (max-width: 900px){
+  .item {
+     flex: 0 0 50%;
+  }
+}
+
+#TextWidget .number .text{ 
+  width: 125px !important;
+}
+
+#TextWidget .number .percent{ 
+  width: 50px !important;
+}
+
+#TextWidget .number .tooltiptext{
+  visibility: hidden;
+  opacity: 0;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  text-align: center;
+  background-color: black;
+  color: white;
+  border-radius: 6px;
+  padding: 5px 5px 5px 5px;
+  position: absolute;
+  z-index: 1;
+  transition: opacity 0.3s;
+  height: auto !important;
+  top: 0px;
+  left: 65%; 
+}
+
+#TextWidget .tooltiptext::after{
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+#TextWidget .item:hover .tooltiptext{
+  visibility: visible;
+  opacity: 1;
+}
+
+#TextWidget .trans{
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+</style>
