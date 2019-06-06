@@ -26,7 +26,3 @@
         ]
     }
 ]
-// this creates a scatter plot of audience to critic score. Implement your own visual by
-// taking the pixel created in the terminal, and replace the first dimension with the parameter name 
-// one based on the selected criteria
-// comments in the query are surrounded by ## comment ##

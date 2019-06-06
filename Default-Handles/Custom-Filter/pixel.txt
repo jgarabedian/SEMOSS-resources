@@ -1,0 +1,63 @@
+Panel (0) | SetPanelView("default-handle", "<encode>{ "param": true, "json":[
+    {
+        "label": "Choose Filters",
+        "query": "UnfilterFrame(); SetFrameFilter((City_State==[<City_State>])); SetFrameFilter((In_state_Tuition>=<Tuition>)); if(<Main_Campus>, (SetFrameFilter(Main_Campus == \"Yes\");Main_Campus = true;), (UnfilterFrame(Main_Campus); Main_Campus = false;));",
+        "listeners": [
+            "updateTask"
+        ],
+        "params": [
+			{
+                "paramName": "City_State",
+                "view": {
+                    "displayType": "checklist",
+                    "attributes": {
+                        "multiple": true,
+                        "quickselect": true,
+                        "searchable": true
+                    }
+                },
+                "model": {
+                    "query": "Database ( \"College\" ) | Select (  COLLEGE__City_State ) | Sort ( columns = [ COLLEGE__City_State ] , sort = [ \"asc\" ] )  | CollectAll();",
+                    "valueQuery": "Select ( City_State ) | CollectAll();"
+                },
+                "required": false,
+                "link": "instance"
+            },
+            {
+                "paramName": "Main_Campus",
+                "view": {
+                    "label": "Filter by following criteria",
+                    "displayType": "checkbox",
+                    "attributes": {
+                        "label": "Main Campus?",
+                        "direction": "left"
+                    }
+                },
+                "model": {
+                    "defaultValue": "false",
+                    "valueQuery": "if((VariableExists(\"Main_Campus\") AND Main_Campus), true, false);"
+                },
+                "required": false
+            },
+            {
+                "paramName": "Tuition",
+                "view": {
+                    "displayType": "number",
+                    "label": "Minimum In State Tuition:",
+                    "attributes": {
+                        "multiple": false 
+                    }
+                },
+                "model": {
+                    "defaultValue": 0,
+					"min": 0,
+					"max": 10000000,
+					"valueQuery": "Select (round(Min(In_state_Tuition), noname=[0])) | Iterate() | GrabScalarElement();"
+				},
+                "required": false
+            }
+        ],
+        "execute": "button"
+    }
+]}</encode>");
+Panel (0) | SetPanelLabel ("Custom Filter");

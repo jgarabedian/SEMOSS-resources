@@ -1,0 +1,28 @@
+Panel ( 0 ) | SetPanelView ( "default-handle" , "<encode>{ "param": true, "json":[
+    {
+        "query": " ##ScatterPlot## if ( ( HasDuplicates ( <groupCol> ) ) , ( Frame ( ) | Select ( <groupCol> , Average ( RottenTomatoes_Critics ) , Average ( RottenTomatoes_Audience ) ) .as ( [ <groupCol> , AverageofRottenTomatoes_Critics , AverageofRottenTomatoes_Audience ] ) | Group ( <groupCol> ) | With ( Panel ( 1 ) ) | Format ( type = [ 'table' ] ) | TaskOptions ( { \"1\" : { \"layout\" : \"Scatter\" , \"alignment\" : { \"label\" : [ \"<groupCol>\" ] , \"x\" : [ \"AverageofRottenTomatoes_Critics\" ] , \"y\" : [ \"AverageofRottenTomatoes_Audience\" ] , \"z\" : [ ] , \"series\" : [ ] , \"tooltip\" : [ ] , \"facet\" : [ ] } } } ) | Collect ( 2000 ) ) , ( Frame ( ) | Select ( <groupCol> , RottenTomatoes_Critics , RottenTomatoes_Audience ) .as ( [ <groupCol> , RottenTomatoes_Critics , RottenTomatoes_Audience ] ) | With ( Panel ( 1 ) ) | Format ( type = [ 'table' ] ) | TaskOptions ( { \"1\" : { \"layout\" : \"Scatter\" , \"alignment\" : { \"label\" : [ \"<groupCol>\" ] , \"x\" : [ \"RottenTomatoes_Critics\" ] , \"y\" : [ \"RottenTomatoes_Audience\" ] , \"z\" : [ ] , \"series\" : [ ] , \"tooltip\" : [ ] , \"facet\" : [ ] } } } ) | Collect ( 2000 ) ) ); Panel ( 1 ) | SetPanelLabel(\"Critic vs Audience score, grouped by <groupCol>\") ",
+        "label": "Label",
+        "description": "",
+        "params": [
+            {
+                "paramName": "groupCol",
+                "view": {
+                    "displayType": "dropdown",
+                    "label": "Pick your dashboard",
+                    "attributes" : {
+                        "change" : "execute"
+                    }
+                },
+                "model": {
+                    "defaultOptions": [
+                        "Title",
+                        "Studio",
+                        "Genre",
+                        "Director"
+                    ],
+                    "defaultValue": "Title"
+                }
+            }
+        ]
+    }
+]}</encode>" ) ;
