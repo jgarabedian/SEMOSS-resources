@@ -28,7 +28,7 @@ Yes! We highly encourage the _SEMOSS_ community to contribute to the resources t
 
 * Include all necessary files (image, pixel, etc.) that are used in the section you are contributing to.
 * As much as possible, comment your code so users can follow.
-* Have your contributions work for MovieDatabase or any other public database that can be scaled to other users.
+* Have your contributions work for MovieDatabase or College or any other public database that can be scaled to other users.
 
 Any Questions?
 -----
