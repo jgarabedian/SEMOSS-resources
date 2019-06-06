@@ -32,4 +32,4 @@ Yes! We highly encourage the _SEMOSS_ community to contribute to the resources t
 
 Any Questions?
 -----
-> Please reach out to semossteam@deloitte.com 
+> Please reach out to jgarabedian@deloitte.com 
