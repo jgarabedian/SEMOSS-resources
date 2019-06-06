@@ -1,0 +1,534 @@
+Panel ( 0 ) | SetPanelView ( "default-handle" , "<encode>{ "param": true, "json":[
+    {
+      "query": "1+1",
+      "description": "An example of every input type for default handles",
+      "params": [
+        {
+          "paramName": "Title_0_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "Title_0",
+          "view": {
+            "displayType": "freetext",
+            "description": "This allows for typing in a short sentence as the value",
+            "label": "Text Field"
+          },
+          "model": {
+            "dependsOn": [
+              "Title_0_search"
+            ],
+            "searchParam": "Title_0_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Title_0_infinite = Database( database=[\"MovieDatabase\"] )|Select(Title).as([Title])|Filter(Title?like\"<Title_0_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Title_0_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "Title_1_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "Checkbox",
+          "view": {
+            "displayType": "checkbox",
+            "description": "Use this field to select something on or off",
+            "attributes": {
+              "direction": "right",
+              "label": "Select either on or off right side"
+            }
+          },
+          "model": {
+            "defaultValue": "false",
+            "valueQuery": "if((1==1), true, false);"
+          },
+          "required": false
+        },
+        {
+          "paramName": "Checkbox left",
+          "view": {
+            "displayType": "checkbox",
+            "description": "Use this field to select something on or off left side",
+            "attributes": {
+              "direction": "left",
+              "label": "Select either on or off"
+            }
+          },
+          "model": {
+            "defaultValue": "false",
+            "valueQuery": "if((1==2), true, false);"
+          },
+          "required": false
+        },
+        {
+          "paramName": "myView",
+          "view": {
+            "displayType": "textfield",
+            "description": "This can be used to break up sections of your form",
+            "label": "=========== A NEW SECTION ======================="
+          }
+        },
+        {
+          "paramName": "Title_1",
+          "view": {
+            "displayType": "checklist",
+            "description": "This allows for a searchable checklist, only allowing one check",
+            "label": "Single Checklist",
+            "attributes": {
+              "multiple": false,
+              "searchable": true,
+              "quickselect": false
+            }
+          },
+          "model": {
+            "dependsOn": [
+              "Title_1_search"
+            ],
+            "searchParam": "Title_1_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Title_1_infinite = Database( database=[\"MovieDatabase\"] )|Select(Title).as([Title])|Filter(Title?like\"<Title_1_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Title_1_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "Title_2_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "Title_2",
+          "view": {
+            "displayType": "checklist",
+            "description": "A searchable checklists, with multiple options",
+            "label": "Multiple Checklist",
+            "attributes": {
+              "multiple": true,
+              "searchable": true,
+              "quickselect": false
+            }
+          },
+          "model": {
+            "dependsOn": [
+              "Title_2_search"
+            ],
+            "searchParam": "Title_2_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Title_2_infinite = Database( database=[\"MovieDatabase\"] )|Select(Title).as([Title])|Filter(Title?like\"<Title_2_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Title_2_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "Title_3_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "Title_3",
+          "view": {
+            "displayType": "dropdown",
+            "description": "A searchable dropdown menu, selecting only one option",
+            "label": "Dropdown",
+            "attributes": {}
+          },
+          "model": {
+            "dependsOn": [
+              "Title_3_search"
+            ],
+            "searchParam": "Title_3_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Title_3_infinite = Database( database=[\"MovieDatabase\"] )|Select(Title).as([Title])|Filter(Title?like\"<Title_3_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Title_3_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "Title_4_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "Title_4",
+          "view": {
+            "displayType": "freetext",
+            "description": "Only allows for standard email formats",
+            "label": "Email",
+            "attributes": {
+              "type": "email",
+              "pattern": "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$",
+              "required": true
+            }
+          },
+          "model": {
+            "dependsOn": [
+              "Title_4_search"
+            ],
+            "searchParam": "Title_4_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Title_4_infinite = Database( database=[\"MovieDatabase\"] )|Select(Title).as([Title])|Filter(Title?like\"<Title_4_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Title_4_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "Title_5_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "Title_5",
+          "view": {
+            "displayType": "text-area",
+            "description": "A larger box for more characters of input",
+            "label": "Text Area",
+            "attributes": {
+              "resize": "vertical"
+            }
+          },
+          "model": {
+            "dependsOn": [
+              "Title_5_search"
+            ],
+            "searchParam": "Title_5_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Title_5_infinite = Database( database=[\"MovieDatabase\"] )|Select(Title).as([Title])|Filter(Title?like\"<Title_5_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Title_5_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "Studio_0_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "Studio_0",
+          "view": {
+            "displayType": "typeahead",
+            "description": "A mix between a drop down and text field, allows for new entries while also showing existing",
+            "label": "Type Ahead"
+          },
+          "model": {
+            "dependsOn": [
+              "Studio_0_search"
+            ],
+            "searchParam": "Studio_0_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Studio_0_infinite = Database( database=[\"MovieDatabase\"] )|Select(Studio).as([Studio])|Filter(Studio?like\"<Studio_0_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Studio_0_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "Title_7_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "Title_7",
+          "view": {
+            "displayType": "date-picker",
+            "description": "On click provides a calendar to select a date",
+            "label": "Date Picker",
+            "attributes": {
+              "format": "YYYY-MM-DD"
+            }
+          },
+          "model": {
+            "dependsOn": [
+              "Title_7_search"
+            ],
+            "searchParam": "Title_7_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Title_7_infinite = Database( database=[\"MovieDatabase\"] )|Select(Title).as([Title])|Filter(Title?like\"<Title_7_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Title_7_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "MovieBudget_8_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "MovieBudget_8",
+          "view": {
+            "displayType": "number",
+            "description": "Only allows for numbers to be entered, and includes arrows to increase/decrease by 1",
+            "label": "Number"
+          },
+          "model": {
+            "dependsOn": [
+              "MovieBudget_8_search"
+            ],
+            "searchParam": "MovieBudget_8_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(MovieBudget_8_infinite = Database( database=[\"MovieDatabase\"] )|Select(Title__MovieBudget).as([MovieBudget])|Filter(Title__MovieBudget?like\"<MovieBudget_8_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "MovieBudget_8_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "RottenTomatoes_Critics_9_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "RottenTomatoes_Critics_9",
+          "view": {
+            "displayType": "radio",
+            "description": "Select only one option",
+            "label": "Radio Button"
+          },
+          "model": {
+            "dependsOn": [
+              "RottenTomatoes_Critics_9_search"
+            ],
+            "searchParam": "RottenTomatoes_Critics_9_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(RottenTomatoes_Critics_9_infinite = Database( database=[\"MovieDatabase\"] )|Select(Genre).as([Genre])|Filter(Genre?like\"<Genre_2_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "RottenTomatoes_Critics_9_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "Revenue_International_10_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "myView",
+          "view": {
+            "displayType": "textfield",
+            "description": "The following are examples of sliders and how to customize them",
+            "label": "=========== SLIDERS ======================="
+          }
+        },
+        {
+          "paramName": "Revenue_International_10",
+          "view": {
+            "displayType": "slider",
+            "description": "Slider format, allow for a range of numbers",
+            "label": "Numerical Range Slider",
+            "attributes": {
+              "multiple": true,
+              "min": 0,
+              "max": 100,
+              "sensitivity": 1,
+              "invert": false,
+              "type": "numerical"
+            }
+          },
+          "model": {
+            "dependsOn": [
+              "Revenue_International_10_search"
+            ],
+            "searchParam": "Revenue_International_10_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Revenue_International_10_infinite = Database( database=[\"MovieDatabase\"] )|Select(Title__Revenue_International).as([Revenue_International])|Filter(Title__Revenue_International?like\"<Revenue_International_10_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Revenue_International_10_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "Revenue_International_11_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "Revenue_International_11",
+          "view": {
+            "displayType": "slider",
+            "description": "Allows for selection of only one number",
+            "label": "Numerical Single Slider Standard",
+            "attributes": {
+              "multiple": false,
+              "min": 0,
+              "max": 100,
+              "sensitivity": 1,
+              "invert": false,
+              "type": "numerical"
+            }
+          },
+          "model": {
+            "dependsOn": [
+              "Revenue_International_11_search"
+            ],
+            "searchParam": "Revenue_International_11_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Revenue_International_11_infinite = Database( database=[\"MovieDatabase\"] )|Select(Title__Revenue_International).as([Revenue_International])|Filter(Title__Revenue_International?like\"<Revenue_International_11_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Revenue_International_11_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "Revenue_Domestic_12_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "Revenue_Domestic_12",
+          "view": {
+            "displayType": "slider",
+            "description": "The filled in area will be on the right instead of the left",
+            "label": "Numerical Single slider Invert",
+            "attributes": {
+              "multiple": false,
+              "min": 0,
+              "max": 100,
+              "sensitivity": 1,
+              "invert": true,
+              "type": "numerical"
+            }
+          },
+          "model": {
+            "dependsOn": [
+              "Revenue_Domestic_12_search"
+            ],
+            "searchParam": "Revenue_Domestic_12_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Revenue_Domestic_12_infinite = Database( database=[\"MovieDatabase\"] )|Select(Title__Revenue_Domestic).as([Revenue_Domestic])|Filter(Title__Revenue_Domestic?like\"<Revenue_Domestic_12_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Revenue_Domestic_12_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "Genre_2_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "Genre_2",
+          "view": {
+            "displayType": "slider",
+            "description": "Select one category from a slider format",
+            "label": "Categorical Single Slider",
+            "attributes": {
+              "multiple": false,
+              "invert": false,
+              "type": "categorical"
+            }
+          },
+          "model": {
+            "dependsOn": [
+              "Genre_2_search"
+            ],
+            "searchParam": "Genre_2_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Genre_2_infinite = Database( database=[\"MovieDatabase\"] )|Select(Genre).as([Genre])|Filter(Genre?like\"<Genre_2_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Genre_2_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "Genre_3_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "Genre_3",
+          "view": {
+            "displayType": "slider",
+            "description": "Select one category from a slider format",
+            "label": "Categorical Single Slider Invert",
+            "attributes": {
+              "multiple": false,
+              "invert": true,
+              "type": "categorical"
+            }
+          },
+          "model": {
+            "dependsOn": [
+              "Genre_3_search"
+            ],
+            "searchParam": "Genre_3_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Genre_3_infinite = Database( database=[\"MovieDatabase\"] )|Select(Genre).as([Genre])|Filter(Genre?like\"<Genre_2_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Genre_3_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        },
+        {
+          "paramName": "Genre_4_search",
+          "view": false,
+          "model": {
+            "defaultValue": ""
+          }
+        },
+        {
+          "paramName": "Genre_4",
+          "view": {
+            "displayType": "slider",
+            "description": "Select multiple categorical dimensions",
+            "label": "Categorical Range Slider",
+            "attributes": {
+              "multiple": true,
+              "invert": false,
+              "type": "categorical"
+            }
+          },
+          "model": {
+            "dependsOn": [
+              "Genre_4_search"
+            ],
+            "searchParam": "Genre_4_search",
+            "defaultValue": "",
+            "defaultOptions": [],
+            "query": "(Genre_4_infinite = Database( database=[\"MovieDatabase\"] )|Select(Genre).as([Genre])|Filter(Genre?like\"<Genre_4_search>\")|Iterate()) | Collect(50);",
+            "infiniteQuery": "Genre_4_infinite | Collect(50);",
+            "autoSelect": false
+          }
+        }
+      ],
+      "execute": "Submit"
+    }
+  ]}</encode>" ) ;
