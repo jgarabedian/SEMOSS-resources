@@ -1,6 +1,8 @@
 SEMOSS-resources
 ======
-Our team utilizes text widgets, default handles, custom click events, etc. in different ways. We have put together a repository of examples for you to leverage when needed.
+Our team utilizes text widgets, default handles, custom click events, etc. in different ways. We have put together a repository of examples for you to leverage when needed. All examples work with either the MovieDatabase or the college database, the data for which can be found [here].
+
+[here]: https://github.com/SEMOSS/Demo-Data
 
 For further explanation, please reference the _SEMOSS_ [user guide].
 
