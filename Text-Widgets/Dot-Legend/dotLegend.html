@@ -1,60 +1,74 @@
 <html>
+
 <head>
-<style>
-#TextWidget {
-    --dot-color-one: #B383FF;
-    --dot-color-two: #FF788F;
-    --dot-color-four: #786FA0;
-}
-#TextWidget .dot1{
-  height: 10px;
-  width: 10px;
-  max-width: 10%;
-  background-color: var(--dot-color-one);
-  border-radius: 50%;
-  display: inline-block;
-}
+  <style>
+    #TextWidget {
+      --dot-color-one: #B383FF;
+      --dot-color-two: #FF788F;
+      --dot-color-four: #786FA0;
+    }
 
-#TextWidget .dotText{
-    display: inline-block;
-    text-overflow: ellipsis;
-    max-width: 33%;
-   padding-right: 5px;
-     font-size: 10px;
-}
+    #TextWidget .container {
+      display: inline-block;
+      font-size: 10px;
+      font-family: Arial, sans-serif;
+      color: black;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      width: 100%;
+    }
 
-#TextWidget .dot3{
-  height: 10px;
-  width: 10px;
-  max-width: 10%;
-  background-color: var(--dot-color-two);
-  border-radius: 50%;
-  display: inline-block;
-}
+    #TextWidget .dot1 {
+      height: 10px;
+      width: 10px;
+      max-width: 10%;
+      background-color: var(--dot-color-one);
+      border-radius: 50%;
+      display: inline-block;
+    }
 
-#TextWidget .dot4{
-  height: 10px;
-  width: 10px;
-  max-width: 10%;
-  background-color: var(--dot-color-four);
-  border-radius: 50%;
-  display: inline-block;
-}
-</style>
+    #TextWidget .dotText {
+      display: inline-block;
+      text-overflow: ellipsis;
+      max-width: 33%;
+      padding-right: 5px;
+      font-size: 10px;
+    }
+
+    #TextWidget .dot3 {
+      height: 10px;
+      width: 10px;
+      max-width: 10%;
+      background-color: var(--dot-color-two);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    #TextWidget .dot4 {
+      height: 10px;
+      width: 10px;
+      max-width: 10%;
+      background-color: var(--dot-color-four);
+      border-radius: 50%;
+      display: inline-block;
+    }
+  </style>
 </head>
+
 <body>
 
-<div style="display:inline-block; font-size:10px; font-family: Arial, sans-serif; color: Black; position: relative; -webkit-font-smoothing: antialiased; margin: 0; width: 100%">
-<div style="width: 100%">
-<div class="dot3"></div>
-<div class="dotText">Hard to Influence</div>
-<div class="dot4"></div>
-<div class="dotText">Moderately Influencable</div>
-<div class="dot1"></div>
-<div class="dotText">Highly Influenceable </div>
-</div>
+  <div class="container">
+    <div class="dot3"></div>
+    <div class="dotText">Hard to Influence</div>
+    <div class="dot4"></div>
+    <div class="dotText">Moderately Influencable</div>
+    <div class="dot1"></div>
+    <div class="dotText">Highly Influenceable </div>
+  </div>
 
 </body>
+
 </html>
 <!-- 
     the color of the dots should correspond with your cbv graph 
