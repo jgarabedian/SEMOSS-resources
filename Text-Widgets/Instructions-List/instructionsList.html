@@ -28,13 +28,11 @@
         --description-background-hover: #eee;
     }
 
+    /* Due to the list items, be sure to incorporate adequate margin */
     .container {
-        align-content: center;
         word-wrap: break-word;
         width: 90%;
-        height: 90%;
-        margin-left: 5%;
-        font: arial, sans-serif;
+        margin: 0 5%;
     }
 
     ol {
@@ -60,7 +58,7 @@
     }
 
     .instruction-list li:hover {
-        background: #eee;
+        background: var(--description-background-hover);
         font-size: larger;
     }
 
