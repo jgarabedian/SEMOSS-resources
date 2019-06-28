@@ -61,6 +61,11 @@
         text-align: center;
     }
 
+    #TextWidget .flip-card-front img {
+        height: 100px;
+        width: 100px;
+    }
+
     #TextWidget .flip-card-back {
         text-align: left;
         background-color: var(--flip-card-back-background);
@@ -76,7 +81,7 @@
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <div><img src="https://image.flaticon.com/icons/svg/148/148723.svg" height="100" width="100"></div>
+                    <div><img src="https://image.flaticon.com/icons/svg/148/148723.svg"></div>
                     <div class="Main">{{systemData[0] | replaceUnderscores }}</div>
                     <div class="Secondary">{{systemData[1] | replaceUnderscores}}</div>
                 </div>
