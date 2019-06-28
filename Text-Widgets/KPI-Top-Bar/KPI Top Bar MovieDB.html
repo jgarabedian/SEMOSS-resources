@@ -1,17 +1,17 @@
 <html>
-<body>
-    <div class="top-bar">
 
-        <div class="today-heading">
+<body>
+    <div class="container">
+
+        <div class="header">
             <div>
                 Weekly KPIs
             </div>
         </div>
-        <div class="today-stats">
-            <div class="today-col">
+        <div class="row">
+            <div class="row__stat">
                 <div class="icon">
-                    <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/checkbox-39-827714.png" alt="Icon"
-                        height="42" width="42">
+                    <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/checkbox-39-827714.png" alt="Icon">
                 </div>
                 <div class="number">
                     {{FrameData[0].output.data.values[0][0] | replaceUnderscores }}
@@ -21,10 +21,9 @@
                     Title
                 </div>
             </div>
-            <div class="today-col">
+            <div class="row__stat">
                 <div class="icon">
-                    <img src="https://cdn3.iconfinder.com/data/icons/miniglyphs/500/041-512.png" alt="Icon" height="42"
-                        width="42">
+                    <img src="https://cdn3.iconfinder.com/data/icons/miniglyphs/500/041-512.png" alt="Icon">
                 </div>
                 <div class="number">
                     {{FrameData[0].output.data.values[0][1] | replaceUnderscores }}
@@ -34,9 +33,9 @@
                     Director
                 </div>
             </div>
-            <div class="today-col">
+            <div class="row__stat">
                 <div class="icon">
-                    <img src="https://static.thenounproject.com/png/376090-200.png" alt="Icon" height="42" width="42">
+                    <img src="https://static.thenounproject.com/png/376090-200.png" alt="Icon">
                 </div>
                 <div class="number">
                     {{FrameData[0].output.data.values[0][2] | number:0 | replaceUnderscores}}
@@ -46,10 +45,9 @@
                     Movie Budget
                 </div>
             </div>
-            <div class="today-col">
+            <div class="row__stat">
                 <div class="icon">
-                    <img src="https://cdn1.iconfinder.com/data/icons/clock-faces-1-12/100/Clock-8-512.png" alt="Icon"
-                        height="42" width="42">
+                    <img src="https://cdn1.iconfinder.com/data/icons/clock-faces-1-12/100/Clock-8-512.png" alt="Icon">
                 </div>
                 <div class="number">
                     {{FrameData[0].output.data.values[0][3] | number:0}}
@@ -59,10 +57,10 @@
                     Domestic Revenue
                 </div>
             </div>
-            <div class="today-col">
+            <div class="row__stat">
                 <div class="icon">
                     <img src="https://cdn3.iconfinder.com/data/icons/emailing-and-messaging-set2/32/ema32px095-512.png"
-                        alt="Icon" height="42" width="42">
+                        alt="Icon">
                 </div>
                 <div class="number">
                     {{FrameData[0].output.data.values[0][4] | number:0}}
@@ -72,10 +70,10 @@
                     International Revenue
                 </div>
             </div>
-            <div class="today-col">
+            <div class="row__stat">
                 <div class="icon">
                     <img src="https://cdn4.iconfinder.com/data/icons/chat-messages-line-icons-vol-1/48/43-512.png"
-                        alt="Icon" height="42" width="42">
+                        alt="Icon">
                 </div>
                 <div class="number">
                     {{FrameData[0].output.data.values[0][6]}}
@@ -93,45 +91,50 @@
 
 <style>
     #TextWidget {
-        --today-heading-background: #c4bebe;
-        --today-heading-color: white;
-        --today-stats-color: white;
-        --today-col-background: linear-gradient(#c4bebe, #003366);
+        --header-background: #c4bebe;
+        --header-color: white;
+        --row-color: white;
+        --row__stat-background: linear-gradient(#c4bebe, #003366);
         --line-background: white;
-        --today-heading-border: 1px solid #c4bebe;
-        --today-col-border: 1px solid #c4bebe;
+        --header-border: 1px solid #c4bebe;
+        --row__stat-border: 1px solid #c4bebe;
     }
 
-    #TextWidget .today-heading{
+    #TextWidget .container {
+        height: 100%;
+        width: 100%;
+    }
+
+    #TextWidget .header {
         /* height: 40px; */
         width: 100%;
         text-align: center;
         font-weight: bold;
-        border: var(--today-heading-border);
-        background: var(--today-heading-background);        
-        color:white;
+        border: var(--header-border);
+        background: var(--header-background);
+        color: white;
         font-size: 150%;
     }
 
-    #TextWidget .today-stats{
+    #TextWidget .row {
         height: 25.55%;
-        color:var(--today-stats-color);
+        color: var(--row-color);
         width: 100%;
     }
 
-    #TextWidget .today-col{
+    #TextWidget .row__stat {
         display: inline-block;
         width: 16.666666666666667%;
-        border: var(--today-col-border);
+        border: var(--row__stat-border);
         overflow: hidden;
         font-size: 1vh;
-        background: var(--today-col-background); 
+        background: var(--row__stat-background);
         white-space: nowrap;
         margin-right: -4px;
         padding-bottom: 10px;
     }
 
-    #TextWidget .icon{
+    #TextWidget .icon {
         width: 100%;
         display: inline-block;
         text-align: center;
@@ -140,7 +143,12 @@
         margin-top: 5%;
     }
 
-    #TextWidget .number{
+    #TextWidget .icon img {
+        height: 42px;
+        width: 42px;
+    }
+
+    #TextWidget .number {
         font-size: 1.8vh;
         width: 100%;
         font-weight: bold;
@@ -151,16 +159,16 @@
         margin-top: 2.5%;
     }
 
-    #TextWidget .line{
+    #TextWidget .line {
         width: 80%;
         display: inline-block;
         margin-left: 10%;
-        background:var(--line-background);
+        background: var(--line-background);
         height: 2px;
         margin-top: 2.5%;
     }
 
-    #TextWidget .label{
+    #TextWidget .label {
         font-size: 1.8vh;
         width: 100%;
         font-weight: bold;
@@ -168,10 +176,5 @@
         overflow: hidden;
         text-overflow: ellipsis;
         margin-top: 2.5%
-    }
-
-    #TextWidget .top-bar{
-        height: 100%;
-        width: 100%;
     }
 </style>
