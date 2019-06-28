@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+</head>
+
+<body>
+    <div class="container">
+        <ol class="instruction-list">
+            <li><u>Emphasize</u> particular items for how to use the dashboard</li>
+            <li>This is a good way to step through instructions</li>
+            <ul class="instruction-subList">
+                <li>Subitems help give</li>
+                <li>More context to the main items</li>
+            </ul>
+            <li><u>Hover</u> over an item for it to expand</li>
+        </ol>
+    </div>
+</body>
+<style>
+    #TextWidget {
+        --number-background: #112e51;
+        --number-text: white;
+        --description-border: white;
+        --description-text: black;
+        --description-background: #ddd;
+        --description-background-hover: #eee;
+    }
+
+    /* Due to the list items, be sure to incorporate adequate margin */
+    .container {
+        word-wrap: break-word;
+        width: 90%;
+        margin: 0 5%;
+    }
+
+    ol {
+        counter-reset: mainList;
+        /*Initiate a counter */
+        list-style: none;
+        /*Remove default numbering */
+        font-size: 1vw;
+        padding: 0;
+        margin-bottom: 4em;
+
+    }
+
+    .instruction-list li {
+        position: relative;
+        display: block;
+        padding: .4em .4em .4em 2em;
+        margin: .5em 0;
+        background: var(--description-background);
+        color: black;
+        border-radius: .3em;
+        transition: all .3s ease-out;
+    }
+
+    .instruction-list li:hover {
+        background: var(--description-background-hover);
+        font-size: larger;
+    }
+
+    .instruction-list li:before {
+        content: counter(mainList);
+        counter-increment: mainList;
+        position: absolute;
+        left: -1.3em;
+        top: 60%;
+        margin-top: -1.3em;
+        background: var(--number-background);
+        height: 2em;
+        width: 2em;
+        line-height: 1.5em;
+        border: .3em solid var(--description-border);
+        color: var(--number-text);
+        text-align: center;
+        border-radius: 2em;
+        transition: all .3s ease-out;
+    }
+
+    ul {
+        counter-reset: subList;
+        counter-reset: mainList;
+        /*to prevent counting the sublists*/
+    }
+
+    .instruction-subList li {
+        margin: .5em 0 0 2em;
+        /*left margin for inner lists*/
+        counter-increment: subList
+    }
+
+    .instruction-subList li:before {
+        content: counter(subList, disc);
+    }
+</style>
+</html>
