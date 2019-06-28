@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/w3.css" />
+</head>
+
+<body>
+    <div class="container1">
+        <ol class="instruction-list">
+            <li><u>Click</u> a Site on the map (colored circles)</li>
+            <li>This panel will visualize a bar chart showing the progress of the Site's Phases (Level 2 Tasks)</li>
+            <ul class="instruction-subList">
+                <li>Sub item 1</li>
+                <li>Sub item 2</li>
+            </ul>
+            <li><u>Hover</u> over a bar to reveal more details about a specific Phase</li>
+        </ol>
+    </div>
+</body>
+<style>
+    .container1 {
+        align-content: center;
+        word-wrap: break-word;
+        width: 90%;
+        height: 90%;
+        margin-left: 5%;
+        font: arial, sans-serif;
+    }
+
+    ol {
+        counter-reset: mainList;
+        /*Initiate a counter */
+        list-style: none;
+        /*Remove default numbering */
+        font-size: 1vw;
+        padding: 0;
+        margin-bottom: 4em;
+
+    }
+
+    .instruction-list li {
+        position: relative;
+        display: block;
+        padding: .4em .4em .4em 2em;
+        margin: .5em 0;
+        background: #ddd;
+        color: black;
+        border-radius: .3em;
+        transition: all .3s ease-out;
+    }
+
+    .instruction-list li:hover {
+        background: #eee;
+        font-size: larger;
+    }
+
+    .instruction-list li:before {
+        content: counter(mainList);
+        counter-increment: mainList;
+        position: absolute;
+        left: -1.3em;
+        top: 60%;
+        margin-top: -1.3em;
+        background: #112e51;
+        height: 2em;
+        width: 2em;
+        line-height: 1.5em;
+        border: .3em solid #fff;
+        color: white;
+        text-align: center;
+        border-radius: 2em;
+        transition: all .3s ease-out;
+    }
+
+    ul {
+        counter-reset: subList;
+        counter-reset: mainList;
+        /*to prevent counting the sublists*/
+    }
+
+    .instruction-subList li {
+        margin: .5em 0 0 2em;
+        /*left margin for inner lists*/
+        counter-increment: subList
+    }
+
+    .instruction-subList li:before {
+        content: counter(subList, disc);
+    }
+</style>
+</html>
