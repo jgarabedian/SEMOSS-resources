@@ -8,17 +8,26 @@
 <body>
     <div class="container">
         <ol class="instruction-list">
-            <li><u>Click</u> a Site on the map (colored circles)</li>
-            <li>This panel will visualize a bar chart showing the progress of the Site's Phases (Level 2 Tasks)</li>
+            <li><u>Emphasize</u> particular items for how to use the dashboard</li>
+            <li>This is a good way to step through instructions</li>
             <ul class="instruction-subList">
-                <li>Sub item 1</li>
-                <li>Sub item 2</li>
+                <li>Subitems help give</li>
+                <li>More context to the main items</li>
             </ul>
-            <li><u>Hover</u> over a bar to reveal more details about a specific Phase</li>
+            <li><u>Hover</u> over an item for it to expand</li>
         </ol>
     </div>
 </body>
 <style>
+    #TextWidget {
+        --number-background: #112e51;
+        --number-text: white;
+        --description-border: white;
+        --description-text: black;
+        --description-background: #ddd;
+        --description-background-hover: #eee;
+    }
+
     .container {
         align-content: center;
         word-wrap: break-word;
@@ -44,7 +53,7 @@
         display: block;
         padding: .4em .4em .4em 2em;
         margin: .5em 0;
-        background: #ddd;
+        background: var(--description-background);
         color: black;
         border-radius: .3em;
         transition: all .3s ease-out;
@@ -62,12 +71,12 @@
         left: -1.3em;
         top: 60%;
         margin-top: -1.3em;
-        background: #112e51;
+        background: var(--number-background);
         height: 2em;
         width: 2em;
         line-height: 1.5em;
-        border: .3em solid #fff;
-        color: white;
+        border: .3em solid var(--description-border);
+        color: var(--number-text);
         text-align: center;
         border-radius: 2em;
         transition: all .3s ease-out;
