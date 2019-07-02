@@ -20,58 +20,9 @@
             margin-top: -1em;
         }
 
-        #TextWidget .tables {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin-top: -2%;
-        }
-
-        #TextWidget #tooltipTable {
-            margin-right: .5em;
-            flex: 1;
-        }
-
-        #TextWidget #datesTable {
-            margin-left: .5em;
-            flex: 1;
-        }
-
-        #TextWidget .table1,
-        #TextWidget .td1 {
-            border: 1px solid black;
-        }
-
-        #TextWidget .col1 {
-            width: 40%;
-        }
-
-        #TextWidget .col2 {
-            width: 67%;
-        }
-
-
-        #TextWidget button {
-            background-color: #002060;
-            border: none;
-            color: white;
-            display: inline-block;
-            font-size: 1.5em;
-            height: 75px;
-            padding: 0px;
-            margin-top: .35em;
-            text-align: center;
-            text-decoration: none;
-            width: 100%;
-        }
-
         #TextWidget .mainHeader {
             font-size: 1.4em;
             border-bottom: 3px dotted black;
-        }
-
-        #TextWidget .varianceHeader {
-            font-size: 1.2em;
         }
 
         #TextWidget .tooltip {
@@ -114,8 +65,7 @@
     <div class="progressBar">
         <div ng-repeat="milestone in milestone[0].output.data.values">
             <h2 class="mainHeader tooltip"><strong>Number of Nominated Titles of the whole</strong> <span
-                    class="tooltiptext">Progress
-                    Bar reflects the completion of Critical Milestone Tasks</span></h2>
+                    class="tooltiptext">Here you can add a tooltip for context</span></h2>
             <div class="w3-light-grey" ng-if="milestone[0] > 0">
                 <div ng-if="milestone[0] > 35" class="w3-container w3-round w3-indigo w3-size w3-padding-small"
                     style="width: {{milestone[0]}}%; height: 55px; text-align: center;">{{milestone[1]}}
