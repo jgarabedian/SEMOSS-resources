@@ -64,35 +64,34 @@
 <body>
     <div class="progressBar">
         <div ng-repeat="milestone in milestone[0].output.data.values">
-            <h2 class="mainHeader tooltip"><strong>Number of Nominated Titles of the whole</strong> <span
+            <h2 class="mainHeader tooltip"><strong>Number of Titles Nominated</strong> <span
                     class="tooltiptext">Here you can add a tooltip for context</span></h2>
             <div class="w3-light-grey" ng-if="milestone[0] > 0">
                 <div ng-if="milestone[0] > 35" class="w3-container w3-round w3-indigo w3-size w3-padding-small"
                     style="width: {{milestone[0]}}%; height: 55px; text-align: center;">{{milestone[1]}}
-                    of {{milestone[2]}} Critical Milestone Tasks
-                    Complete
+                    of {{milestone[2]}} Titles Nominated
                 </div>
                 <div ng-if="milestone[0] < 35 && milestone[0] > 21"
                     class="w3-container w3-round w3-indigo w3-size w3-padding-small"
                     style="width: {{milestone[0]}}%; height: 55px; text-align: center; font-size: 12px;">
                     {{milestone[1]}}
-                    of {{milestone[2]}} Critical Milestones Complete
+                    of {{milestone[2]}} Titles Nominated
                 </div>
                 <div ng-if="milestone[0] <  21 && milestone[0] > 12"
                     class="w3-container w3-round w3-indigo w3-size w3-padding-small"
                     style="width: {{milestone[0]}}%; height: 55px; text-align: center; font-size: 12px;">
                     {{milestone[1]}}
-                    Milestone Tasks Complete
+                    Titles Nominated
                 </div>
                 <div ng-if="milestone[0] <=  12" class="w3-container w3-round w3-indigo w3-size w3-padding-small"
                     style="width: {{milestone[0]}}%; height: 55px; text-align: center; font-size: 12px; line-height: 1.25em; ">
                     {{milestone[1]}}
-                    Milestone Complete
+                    Titles Nominated
                 </div>
             </div>
             <div class="w3-light-grey w3-container w3-round w3-size w3-padding-small" ng-if="milestone[0] <= 0"
                 style="height: 55px;">
-                <div>No Milestones Tasks have been Completed
+                <div>No titles nominated
                 </div>
             </div>
         </div>
