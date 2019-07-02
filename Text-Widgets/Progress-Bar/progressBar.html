@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        #TextWidget .container {
+            display: flex;
+            flex-direction: column;
+            padding: .5em;
+            height: fit-content;
+            overflow: hidden;
+        }
+
+        #TextWidget .progressBar {
+            width: 100%;
+            margin-bottom: 1em;
+            margin-top: -1em;
+        }
+
+        #TextWidget .tables {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: -2%;
+        }
+
+        #TextWidget #tooltipTable {
+            margin-right: .5em;
+            flex: 1;
+        }
+
+        #TextWidget #datesTable {
+            margin-left: .5em;
+            flex: 1;
+        }
+
+        #TextWidget .table1,
+        #TextWidget .td1 {
+            border: 1px solid black;
+        }
+
+        #TextWidget .col1 {
+            width: 40%;
+        }
+
+        #TextWidget .col2 {
+            width: 67%;
+        }
+
+
+        #TextWidget button {
+            background-color: #002060;
+            border: none;
+            color: white;
+            display: inline-block;
+            font-size: 1.5em;
+            height: 75px;
+            padding: 0px;
+            margin-top: .35em;
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        #TextWidget .mainHeader {
+            font-size: 1.4em;
+            border-bottom: 3px dotted black;
+        }
+
+        #TextWidget .varianceHeader {
+            font-size: 1.2em;
+        }
+
+        #TextWidget .tooltip {
+            position: relative;
+            display: inline-block;
+            /* If you want dots under the hoverable text */
+
+        }
+
+        #TextWidget
+
+        /* Tooltip text */
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+
+            /* Position the tooltip text - see examples at https://www.w3schools.com/css/css_tooltip.asp */
+            position: absolute;
+            z-index: 1;
+            top: 15px;
+            left: 50%;
+        }
+
+        #TextWidget
+
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progressBar">
+        <div ng-repeat="milestone in milestone[0].output.data.values">
+            <h2 class="mainHeader tooltip"><strong>Number of Nominated Titles of the whole</strong> <span
+                    class="tooltiptext">Progress
+                    Bar reflects the completion of Critical Milestone Tasks</span></h2>
+            <div class="w3-light-grey" ng-if="milestone[0] > 0">
+                <div ng-if="milestone[0] > 35" class="w3-container w3-round w3-indigo w3-size w3-padding-small"
+                    style="width: {{milestone[0]}}%; height: 55px; text-align: center;">{{milestone[1]}}
+                    of {{milestone[2]}} Critical Milestone Tasks
+                    Complete
+                </div>
+                <div ng-if="milestone[0] < 35 && milestone[0] > 21"
+                    class="w3-container w3-round w3-indigo w3-size w3-padding-small"
+                    style="width: {{milestone[0]}}%; height: 55px; text-align: center; font-size: 12px;">
+                    {{milestone[1]}}
+                    of {{milestone[2]}} Critical Milestones Complete
+                </div>
+                <div ng-if="milestone[0] <  21 && milestone[0] > 12"
+                    class="w3-container w3-round w3-indigo w3-size w3-padding-small"
+                    style="width: {{milestone[0]}}%; height: 55px; text-align: center; font-size: 12px;">
+                    {{milestone[1]}}
+                    Milestone Tasks Complete
+                </div>
+                <div ng-if="milestone[0] <=  12" class="w3-container w3-round w3-indigo w3-size w3-padding-small"
+                    style="width: {{milestone[0]}}%; height: 55px; text-align: center; font-size: 12px; line-height: 1.25em; ">
+                    {{milestone[1]}}
+                    Milestone Complete
+                </div>
+            </div>
+            <div class="w3-light-grey w3-container w3-round w3-size w3-padding-small" ng-if="milestone[0] <= 0"
+                style="height: 55px;">
+                <div>No Milestones Tasks have been Completed
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+</body>
+
+</html>

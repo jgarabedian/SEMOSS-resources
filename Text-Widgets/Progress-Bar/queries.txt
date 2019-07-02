@@ -1,0 +1,6 @@
+
+##Here we actually query the frame using H2##
+
+Param Name: milestone
+
+Query: Frame ( ) | Query ( "<encode>SELECT CAST((SUM( CASE WHEN Nominated = 'Y' THEN 1 ELSE 0 END) ) / ( COUNT(*)*1.0 ) AS DOUBLE) * 100 AS PERCENTAGE, SUM( CASE WHEN Nominated = 'Y' THEN 1 ELSE 0 END) AS NUM_NOM, COUNT(*) AS TOTAL FROM FRAME617780 </encode>" ) | CollectAll ( ) ;
